@@ -129,8 +129,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/penguuna">
-                            <i class="bi bi-circle"></i><span>Penguuna</span>
+                        <a href="/penguna">
+                            <i class="bi bi-circle"></i><span>Penguna</span>
                         </a>
                     </li>
                     <li>
@@ -141,7 +141,36 @@
                 </ul>
             </li><!-- End Components Nav -->
 
-
+            <li class="nav-item">
+                <a class="nav-link @if ($section == 'pembeli') @else
+                collapsed @endif"
+                    data-bs-target="#pembeli" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Pembeli</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="pembeli" class="nav-content collapse @if ($section == 'pembeli') show @endif"
+                    data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/pesan">
+                            <i class="bi bi-circle"></i><span>Pesan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/kurir">
+                            <i class="bi bi-circle"></i><span>Kurir</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/penguna">
+                            <i class="bi bi-circle"></i><span>Penguna</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/transaksi">
+                            <i class="bi bi-circle"></i><span>Transaksi</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Components Nav -->
 
         </ul>
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KurirController;
 use App\Http\Controllers\NotFoundController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,8 @@ Route::get('/barang', [BarangController::class, 'index']);
 Route::get('/barang/create', [BarangController::class, 'create']);
 
 Route::get('/kurir', [KurirController::class, 'index']);
+
+Route::get('/pesan', [TransaksiController::class, 'index']);
 
 Route::get('/{err}', [NotFoundController::class, 'index']);
 Route::get('/{err}/{err2}', [NotFoundController::class, 'index']);
