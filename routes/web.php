@@ -18,18 +18,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index']);
+Route::group(['middleware' => ['auth', 'middAdmin']], function () {
+    Route::get('/', [DashboardController::class, 'index']);
 
-Route::get('/login', [DashboardController::class, 'login']);
-Route::get('/register', [DashboardController::class, 'register']);
+    Route::get('/barang', [BarangController::class, 'index']);
+    Route::get('/barang/create', [BarangController::class, 'create']);
 
-Route::get('/barang', [BarangController::class, 'index']);
-Route::get('/barang/create', [BarangController::class, 'create']);
+    Route::get('/kurir', [KurirController::class, 'index']);
+});
 
-Route::get('/kurir', [KurirController::class, 'index']);
+Route::group(['middleware' => ['guest']], function () {
+    Route::get('/login', [DashboardController::class, 'login']);
+    Route::get('/register', [DashboardController::class, 'register']);
+    Route::post('/register', [DashboardController::class, 'createAnAccount']);
+    Route::post('/login', [DashboardController::class, 'loginIntoAnAccount']);
+});
 
-Route::get('/pesan', [TransaksiController::class, 'index']);
-Route::get('/pesan/{barang}', [TransaksiController::class, 'create']);
+Route::group(['middleware' => ['auth', 'middPembeli']], function () {
+    Route::get('/pesan', [TransaksiController::class, 'index'])->middleware(['middPembeli']);
+    Route::get('/pesan/{barang}', [TransaksiController::class, 'create']);
+});
+
+
+
+Route::get('/logout', [DashboardController::class, 'logout']);
+
+
+
 
 Route::get('/{err}', [NotFoundController::class, 'index']);
 Route::get('/{err}/{err2}', [NotFoundController::class, 'index']);

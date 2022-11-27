@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\dashboard;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -34,6 +36,43 @@ class DashboardController extends Controller
             "title" => "Register",
             "section" => "Register",
         ]);
+    }
+
+    public function createAnAccount(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+        $validatedData['password'] = bcrypt($validatedData['password']);
+        // return $validatedData;
+        User::create($validatedData);
+        return redirect('/login');
+    }
+
+    public function loginIntoAnAccount(Request $request)
+    {
+        $credentials = $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect('/pesan');
+        }
+        return redirect('/login');;
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+
+        return redirect('/login')->with('success', 'anda harus masuk terlebih dahulu');
     }
 
     /**
