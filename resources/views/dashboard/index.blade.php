@@ -32,14 +32,14 @@
                                             <h6>Filter</h6>
                                         </li>
 
-                                        <li><a class="dropdown-item" href="#">Today</a></li>
-                                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                                        <li><a class="dropdown-item" href="#">Hari ini</a></li>
+                                        <li><a class="dropdown-item" href="#">Bulan ini</a></li>
+                                        <li><a class="dropdown-item" href="#">Tahun ini</a></li>
                                     </ul>
                                 </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Sales <span>| Today</span></h5>
+                                    <h5 class="card-title">Penjualan <span>| Hari ini</span></h5>
 
                                     <div class="d-flex align-items-center">
                                         <div
@@ -49,7 +49,7 @@
                                         <div class="ps-3">
                                             <h6>145</h6>
                                             <span class="text-success small pt-1 fw-bold">12%</span> <span
-                                                class="text-muted small pt-2 ps-1">increase</span>
+                                                class="text-muted small pt-2 ps-1">peningkatan</span>
 
                                         </div>
                                     </div>
@@ -70,14 +70,14 @@
                                             <h6>Filter</h6>
                                         </li>
 
-                                        <li><a class="dropdown-item" href="#">Today</a></li>
-                                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                                        <li><a class="dropdown-item" href="#">Hari ini</a></li>
+                                        <li><a class="dropdown-item" href="#">Bulan ini</a></li>
+                                        <li><a class="dropdown-item" href="#">Tahun ini</a></li>
                                     </ul>
                                 </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Revenue <span>| This Month</span></h5>
+                                    <h5 class="card-title">Pendapatan <span>| Bulan ini</span></h5>
 
                                     <div class="d-flex align-items-center">
                                         <div
@@ -85,9 +85,9 @@
                                             <i class="bi bi-currency-dollar"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>$3,264</h6>
+                                            <h4>Rp. 90.000.000,-</h4>
                                             <span class="text-success small pt-1 fw-bold">8%</span> <span
-                                                class="text-muted small pt-2 ps-1">increase</span>
+                                                class="text-muted small pt-2 ps-1">peningkatan</span>
 
                                         </div>
                                     </div>
@@ -109,14 +109,14 @@
                                             <h6>Filter</h6>
                                         </li>
 
-                                        <li><a class="dropdown-item" href="#">Today</a></li>
-                                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                                        <li><a class="dropdown-item" href="#">Hari ini</a></li>
+                                        <li><a class="dropdown-item" href="#">Bulan ini</a></li>
+                                        <li><a class="dropdown-item" href="#">Tahun ini</a></li>
                                     </ul>
                                 </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Customers <span>| This Year</span></h5>
+                                    <h5 class="card-title">Pelanggan <span>| Tahun ini</span></h5>
 
                                     <div class="d-flex align-items-center">
                                         <div
@@ -126,7 +126,7 @@
                                         <div class="ps-3">
                                             <h6>1244</h6>
                                             <span class="text-danger small pt-1 fw-bold">12%</span> <span
-                                                class="text-muted small pt-2 ps-1">decrease</span>
+                                                class="text-muted small pt-2 ps-1">berkurang</span>
 
                                         </div>
                                     </div>
@@ -148,14 +148,14 @@
                                             <h6>Filter</h6>
                                         </li>
 
-                                        <li><a class="dropdown-item" href="#">Today</a></li>
-                                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                                        <li><a class="dropdown-item" href="#">Hari ini</a></li>
+                                        <li><a class="dropdown-item" href="#">Bulan ini</a></li>
+                                        <li><a class="dropdown-item" href="#">Tahun ini</a></li>
                                     </ul>
                                 </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Reports <span>/Today</span></h5>
+                                    <h5 class="card-title">Laporan <span>/Hari ini</span></h5>
 
                                     <!-- Line Chart -->
                                     <div id="reportsChart"></div>
@@ -164,13 +164,13 @@
                                         document.addEventListener("DOMContentLoaded", () => {
                                             new ApexCharts(document.querySelector("#reportsChart"), {
                                                 series: [{
-                                                    name: 'Sales',
+                                                    name: 'Penualan',
                                                     data: [31, 40, 28, 51, 42, 82, 56],
                                                 }, {
-                                                    name: 'Revenue',
+                                                    name: 'Pendapatan',
                                                     data: [11, 32, 45, 32, 34, 52, 41]
                                                 }, {
-                                                    name: 'Customers',
+                                                    name: 'Pelanggan',
                                                     data: [15, 11, 32, 18, 9, 24, 11]
                                                 }],
                                                 chart: {
@@ -228,57 +228,53 @@
                             <div class="card recent-sales overflow-auto">
 
                                 <div class="card-body ">
-                                    <h5 class="card-title">Recent Sales <span>| Today</span></h5>
+                                    <h5 class="card-title">Penjualan Terbaru <span>| Hari ini</span></h5>
 
                                     <table class="table table-borderless datatable">
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Customer</th>
-                                                <th scope="col">Product</th>
-                                                <th scope="col">Price</th>
+                                                <th scope="col">Produk</th>
+                                                <th scope="col">Harga</th>
                                                 <th scope="col">Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <th scope="row"><a href="#">#2457</a></th>
-                                                <td>Brandon Jacob</td>
-                                                <td><a href="#" class="text-primary">At praesentium minu</a>
+                                                <td>Wahid Alfarisi</td>
+                                                <td><a href="#" class="text-primary">Sabun Mandi</a>
                                                 </td>
-                                                <td>$64</td>
+                                                <td>Rp. 332.000</td>
                                                 <td><span class="badge bg-success">Approved</span></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row"><a href="#">#2147</a></th>
-                                                <td>Bridie Kessler</td>
-                                                <td><a href="#" class="text-primary">Blanditiis dolor omnis
-                                                        similique</a></td>
-                                                <td>$47</td>
+                                                <td>Umi Ningtyas</td>
+                                                <td><a href="#" class="text-primary">Hand Soap Nuvo</a></td>
+                                                <td>Rp. 52.000</td>
                                                 <td><span class="badge bg-warning">Pending</span></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row"><a href="#">#2049</a></th>
-                                                <td>Ashleigh Langosh</td>
-                                                <td><a href="#" class="text-primary">At recusandae
-                                                        consectetur</a></td>
-                                                <td>$147</td>
+                                                <td>Furqan Akbar</td>
+                                                <td><a href="#" class="text-primary">Hand Sanitizer</a></td>
+                                                <td>Rp. 120.000</td>
                                                 <td><span class="badge bg-success">Approved</span></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row"><a href="#">#2644</a></th>
-                                                <td>Angus Grady</td>
-                                                <td><a href="#" class="text-primar">Ut voluptatem id earum
-                                                        et</a></td>
-                                                <td>$67</td>
+                                                <td>Ismail Putra S</td>
+                                                <td><a href="#" class="text-primar">Hand Sanitizer</a></td>
+                                                <td>Rp. 52.000</td>
                                                 <td><span class="badge bg-danger">Rejected</span></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row"><a href="#">#2644</a></th>
-                                                <td>Raheem Lehner</td>
-                                                <td><a href="#" class="text-primary">Sunt similique
-                                                        distinctio</a></td>
-                                                <td>$165</td>
+                                                <td>Aisyah Aqilla</td>
+                                                <td><a href="#" class="text-primary">Sampo Betsz</a></td>
+                                                <td>Rp. 45.000</td>
                                                 <td><span class="badge bg-success">Approved</span></td>
                                             </tr>
                                         </tbody>
@@ -301,70 +297,65 @@
                                             <h6>Filter</h6>
                                         </li>
 
-                                        <li><a class="dropdown-item" href="#">Today</a></li>
-                                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                                        <li><a class="dropdown-item" href="#">Hari ini</a></li>
+                                        <li><a class="dropdown-item" href="#">Bulan ini</a></li>
+                                        <li><a class="dropdown-item" href="#">Tahun ini</a></li>
                                     </ul>
                                 </div>
 
                                 <div class="card-body pb-0">
-                                    <h5 class="card-title">Top Selling <span>| Today</span></h5>
+                                    <h5 class="card-title">Terlaris <span>| Hari ini</span></h5>
 
                                     <table class="table table-borderless">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Preview</th>
-                                                <th scope="col">Product</th>
-                                                <th scope="col">Price</th>
-                                                <th scope="col">Sold</th>
-                                                <th scope="col">Revenue</th>
+                                                <th scope="col">Produk</th>
+                                                <th scope="col">Harga</th>
+                                                <th scope="col">Terjual</th>
+                                                <th scope="col">Pendapatan</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th scope="row"><a href="#"><img src="/assets/img/product-1.jpg"
+                                                <th scope="row"><a href="#"><img src="/assets/img/product/lux.jpg"
                                                             alt=""></a></th>
-                                                <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa
-                                                        voluptas nulla</a></td>
-                                                <td>$64</td>
+                                                <td><a href="#" class="text-primary fw-bold">Lux Bodywash Velvet Jasmine 4 L</a></td>
+                                                <td>Rp. 332.000</td>
                                                 <td class="fw-bold">124</td>
-                                                <td>$5,828</td>
+                                                <td>Rp. 41.168.000</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row"><a href="#"><img src="/assets/img/product-2.jpg"
+                                                <th scope="row"><a href="#"><img src="/assets/img/product/life.jpg"
                                                             alt=""></a></th>
-                                                <td><a href="#" class="text-primary fw-bold">Exercitationem
-                                                        similique doloremque</a></td>
-                                                <td>$46</td>
+                                                <td><a href="#" class="text-primary fw-bold">Headphone Soap Lifebuoy 4L</a></td>
+                                                <td>Rp. 52.000</td>
                                                 <td class="fw-bold">98</td>
-                                                <td>$4,508</td>
+                                                <td>Rp. 5.096.000</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row"><a href="#"><img src="/assets/img/product-3.jpg"
+                                                <th scope="row"><a href="#"><img src="/assets/img/product/rinso.jpg"
                                                             alt=""></a></th>
-                                                <td><a href="#" class="text-primary fw-bold">Doloribus nisi
-                                                        exercitationem</a></td>
-                                                <td>$59</td>
+                                                <td><a href="#" class="text-primary fw-bold">Detergen Cair Rinso 5 L</a></td>
+                                                <td>Rp. 60.000</td>
                                                 <td class="fw-bold">74</td>
-                                                <td>$4,366</td>
+                                                <td>Rp. 4.440.000</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row"><a href="#"><img src="/assets/img/product-4.jpg"
+                                                <th scope="row"><a href="#"><img src="/assets/img/product/sunlight.jpg"
                                                             alt=""></a></th>
-                                                <td><a href="#" class="text-primary fw-bold">Officiis quaerat
-                                                        sint rerum error</a></td>
-                                                <td>$32</td>
+                                                <td><a href="#" class="text-primary fw-bold">Sabun Cuci Piring Sunlight 5 L</a></td>
+                                                <td>Rp. 90.0000</td>
                                                 <td class="fw-bold">63</td>
-                                                <td>$2,016</td>
+                                                <td>Rp. 5.670.000</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row"><a href="#"><img src="/assets/img/product-5.jpg"
+                                                <th scope="row"><a href="#"><img src="/assets/img/product/handsanitizer.jpg"
                                                             alt=""></a></th>
-                                                <td><a href="#" class="text-primary fw-bold">Sit unde debitis
-                                                        delectus repellendus</a></td>
-                                                <td>$79</td>
+                                                <td><a href="#" class="text-primary fw-bold">Hand Sanitizer Lifebuoy 4 L</a></td>
+                                                <td>Rp. 120.000</td>
                                                 <td class="fw-bold">41</td>
-                                                <td>$3,239</td>
+                                                <td>Rp. 4.920.000</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -390,14 +381,14 @@
                                     <h6>Filter</h6>
                                 </li>
 
-                                <li><a class="dropdown-item" href="#">Today</a></li>
-                                <li><a class="dropdown-item" href="#">This Month</a></li>
-                                <li><a class="dropdown-item" href="#">This Year</a></li>
+                                <li><a class="dropdown-item" href="#">Hari ini</a></li>
+                                <li><a class="dropdown-item" href="#">Bulan ini</a></li>
+                                <li><a class="dropdown-item" href="#">Tahun ini</a></li>
                             </ul>
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title">Recent Activity <span>| Today</span></h5>
+                            <h5 class="card-title">Aktivitas Terbaru<span>| Hari ini</span></h5>
 
                             <div class="activity">
 
@@ -466,14 +457,14 @@
                                     <h6>Filter</h6>
                                 </li>
 
-                                <li><a class="dropdown-item" href="#">Today</a></li>
-                                <li><a class="dropdown-item" href="#">This Month</a></li>
-                                <li><a class="dropdown-item" href="#">This Year</a></li>
+                                <li><a class="dropdown-item" href="#">Hari ini</a></li>
+                                <li><a class="dropdown-item" href="#">Bulan ini</a></li>
+                                <li><a class="dropdown-item" href="#">Tahun ini</a></li>
                             </ul>
                         </div>
 
                         <div class="card-body pb-0">
-                            <h5 class="card-title">Budget Report <span>| This Month</span></h5>
+                            <h5 class="card-title">Laporan Anggaran <span>| Bulan ini</span></h5>
 
                             <div id="budgetChart" style="min-height: 400px;" class="echart"></div>
 
@@ -541,14 +532,14 @@
                                     <h6>Filter</h6>
                                 </li>
 
-                                <li><a class="dropdown-item" href="#">Today</a></li>
-                                <li><a class="dropdown-item" href="#">This Month</a></li>
-                                <li><a class="dropdown-item" href="#">This Year</a></li>
+                                <li><a class="dropdown-item" href="#">Hari ini</a></li>
+                                <li><a class="dropdown-item" href="#">Bulan ini</a></li>
+                                <li><a class="dropdown-item" href="#">Tahun ini</a></li>
                             </ul>
                         </div>
 
                         <div class="card-body pb-0">
-                            <h5 class="card-title">Website Traffic <span>| Today</span></h5>
+                            <h5 class="card-title">Website Traffic <span>| Hari ini</span></h5>
 
                             <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
 
@@ -620,14 +611,14 @@
                                     <h6>Filter</h6>
                                 </li>
 
-                                <li><a class="dropdown-item" href="#">Today</a></li>
-                                <li><a class="dropdown-item" href="#">This Month</a></li>
-                                <li><a class="dropdown-item" href="#">This Year</a></li>
+                                <li><a class="dropdown-item" href="#">Hari ini</a></li>
+                                <li><a class="dropdown-item" href="#">Bulan ini</a></li>
+                                <li><a class="dropdown-item" href="#">Tahun ini</a></li>
                             </ul>
                         </div>
 
                         <div class="card-body pb-0">
-                            <h5 class="card-title">News &amp; Updates <span>| Today</span></h5>
+                            <h5 class="card-title">Berita Terbaru <span>| Hari ini</span></h5>
 
                             <div class="news">
                                 <div class="post-item clearfix">
