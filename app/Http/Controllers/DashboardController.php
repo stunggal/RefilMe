@@ -20,6 +20,22 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function login()
+    {
+        return view('registrasi.login', [
+            "title" => "Login",
+            "section" => "Login",
+        ]);
+    }
+
+    public function register()
+    {
+        return view('registrasi.register', [
+            "title" => "Register",
+            "section" => "Register",
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
