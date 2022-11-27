@@ -17,8 +17,8 @@ class TransaksiController extends Controller
     {
         $barangs = barang::all();
         return view('transaksi.index', [
-            "title" => "Kurir",
-            "section" => "Master",
+            "title" => "Order Somethings",
+            "section" => "pembeli",
             "barangs" => $barangs,
         ]);
     }
@@ -28,9 +28,13 @@ class TransaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(barang $barang)
     {
-        //
+        return view('transaksi.show', [
+            "title" => "Order Somethings",
+            "section" => "pembeli",
+            "barang" => $barang,
+        ]);
     }
 
     /**

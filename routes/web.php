@@ -26,6 +26,7 @@ Route::get('/barang/create', [BarangController::class, 'create']);
 Route::get('/kurir', [KurirController::class, 'index']);
 
 Route::get('/pesan', [TransaksiController::class, 'index']);
+Route::get('/pesan/{barang}', [TransaksiController::class, 'create']);
 
 Route::get('/{err}', [NotFoundController::class, 'index']);
 Route::get('/{err}/{err2}', [NotFoundController::class, 'index']);

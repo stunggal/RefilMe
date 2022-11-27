@@ -4,11 +4,11 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Dashboard</h1>
+            <h1>{{ $title }}</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Dashboard</li>
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active">{{ $title }}</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -26,7 +26,7 @@
 
                                 <div class="card-body">
 
-                                    <h5 class="card-title">Recent Sales <span>| Today</span></h5>
+                                    <h5 class="card-title">Our Produts <span>| Today</span></h5>
 
                                     <div class="row align-items-top">
 
@@ -34,9 +34,7 @@
                                             <div class="col-lg-3">
                                                 <!-- Card with an image on top -->
                                                 <div class="card">
-                                                    {{-- <img src="assets/img/product/life.jpg" class="card-img-top" alt="..."> --}}
-                                                    <img src="https://picsum.photos/1024/768" class="card-img-top"
-                                                        alt="...">
+                                                    <img src="{{ $barang->gambar }}" class="card-img-top" alt="...">
                                                     <div class="card-body">
                                                         <h5 class="card-title">{{ $barang->nama }}</h5>
                                                         <h5 class="card-text">{{ $barang->jenis }}</h5>
