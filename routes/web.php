@@ -34,8 +34,8 @@ Route::group(['middleware' => ['guest']], function () {
     Route::post('/login', [DashboardController::class, 'loginIntoAnAccount']);
 });
 
+Route::get('/pesan', [TransaksiController::class, 'index'])->middleware(['middPembeli']);
 Route::group(['middleware' => ['auth', 'middPembeli']], function () {
-    Route::get('/pesan', [TransaksiController::class, 'index'])->middleware(['middPembeli']);
     Route::get('/pesan/{barang}', [TransaksiController::class, 'create']);
 });
 
