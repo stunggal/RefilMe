@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [DashboardController::class, 'index']);
 Route::group(['middleware' => ['auth', 'middAdmin']], function () {
-    Route::get('/', [DashboardController::class, 'index']);
 
     Route::get('/barang', [BarangController::class, 'index']);
     Route::get('/barang/create', [BarangController::class, 'create']);
