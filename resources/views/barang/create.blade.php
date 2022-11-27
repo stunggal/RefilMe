@@ -35,11 +35,13 @@
                                     <label class="col-sm-2 col-form-label">Jenis</label>
                                     <div class="col-sm-10">
                                         <select class="form-select" aria-label="Default select example">
-                                            <option selected disabled>Pilih jenis barang</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
+                                                <option selected disabled>Pilih jenis barang</option>
+                                                <option value="1">Sabun Mandi</option>
+                                                <option value="2">Sabun Cuci Piring</option>
+                                                <option value="4">Sabun Cuci Tangan</option>
+                                                <option value="5">Hand Sanitizer</option>
+                                                <option value="6">Sampo</option>
+                                            </select>
                                     </div>
                                 </div>
 
