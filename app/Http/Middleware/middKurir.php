@@ -21,6 +21,5 @@ class middKurir
         if ($user->role == 'kurir') {
             return $next($request);
         }
-        return redirect('/login');
     }
 }

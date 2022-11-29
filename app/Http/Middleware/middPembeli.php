@@ -21,6 +21,5 @@ class middPembeli
         if ($user->role == 'pembeli') {
             return $next($request);
         }
-        return redirect('/login');
     }
 }

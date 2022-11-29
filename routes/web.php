@@ -18,27 +18,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index']);
-Route::group(['middleware' => ['auth', 'middAdmin']], function () {
+Route::get('/', [DashboardController::class, 'index'])->name('dash');
 
-    Route::get('/barang', [BarangController::class, 'index']);
+Route::group(['middleware' => ['middAdmin']], function () {
+    Route::get('/barang', [BarangController::class, 'index'])->name('barang');
     Route::get('/barang/create', [BarangController::class, 'create']);
+});
 
+Route::group(['middleware' => ['middKurir']], function () {
     Route::get('/kurir', [KurirController::class, 'index']);
 });
 
 Route::group(['middleware' => ['guest']], function () {
-    Route::get('/login', [DashboardController::class, 'login']);
+    Route::get('/login', [DashboardController::class, 'login'])->name('login');
     Route::get('/register', [DashboardController::class, 'register']);
     Route::post('/register', [DashboardController::class, 'createAnAccount']);
     Route::post('/login', [DashboardController::class, 'loginIntoAnAccount']);
 });
 
-Route::get('/pesan', [TransaksiController::class, 'index'])->middleware(['middPembeli']);
-Route::group(['middleware' => ['auth', 'middPembeli']], function () {
+Route::get('/pesan', [TransaksiController::class, 'index'])->name('pesan');
+Route::group(['middleware' => ['middPembeli']], function () {
     Route::get('/pesan/{barang}', [TransaksiController::class, 'create']);
 });
 
+Route::get('/profile/{user}', [DashboardController::class, 'showProfile']);
+Route::post('/profile/{user}', [DashboardController::class, 'updateProfile']);
 
 
 Route::get('/logout', [DashboardController::class, 'logout']);

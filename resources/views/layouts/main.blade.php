@@ -54,42 +54,51 @@
                     </a>
                 </li><!-- End Search Icon-->
 
-                <li class="nav-item dropdown pe-3">
+                @auth
+                    <li class="nav-item dropdown pe-3">
 
-                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
-                        data-bs-toggle="dropdown">
-                        <img src="/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-                    </a><!-- End Profile Iamge Icon -->
+                        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
+                            data-bs-toggle="dropdown">
+                            <img src="/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                            <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
+                        </a><!-- End Profile Iamge Icon -->
 
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                        <li class="dropdown-header">
-                            <h6>Kevin Anderson</h6>
-                            <span>Web Designer</span>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                            <li class="dropdown-header">
+                                <h6>{{ Auth::user()->name }}</h6>
+                                <span>{{ Auth::user()->role }}</span>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
 
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                                <i class="bi bi-person"></i>
-                                <span>My Profile</span>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="/profile/{{ Auth::user()->id }}">
+                                    <i class="bi bi-person"></i>
+                                    <span>My Profile</span>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
 
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="/logout">
-                                <i class="bi bi-box-arrow-right"></i>
-                                <span>Sign Out</span>
-                            </a>
-                        </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="/logout">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span>Sign Out</span>
+                                </a>
+                            </li>
+                        </ul><!-- End Profile Dropdown Items -->
+                    </li><!-- End Profile Nav -->
+                @endauth
 
-                    </ul><!-- End Profile Dropdown Items -->
-                </li><!-- End Profile Nav -->
+                @guest
+                    <nav class="header-nav ms-auto">
+                        <a href="/login"><button type="button" class="btn btn-primary">Login</button></a> |
+                        <a href="/register"><button type="button" class="btn btn-secondary">Register</button></a>
+                    </nav>
+                @endguest
+
 
             </ul>
         </nav><!-- End Icons Navigation -->
@@ -145,7 +154,8 @@
                 <a class="nav-link @if ($section == 'pembeli') @else
                 collapsed @endif"
                     data-bs-target="#pembeli" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-menu-button-wide"></i><span>Pembeli</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-menu-button-wide"></i><span>Pembeli</span><i
+                        class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="pembeli" class="nav-content collapse @if ($section == 'pembeli') show @endif"
                     data-bs-parent="#sidebar-nav">

@@ -75,6 +75,35 @@ class DashboardController extends Controller
         return redirect('/login')->with('success', 'anda harus masuk terlebih dahulu');
     }
 
+    public function showProfile(User $user)
+    {
+        $user = Auth::user();
+        return view('registrasi.profile', [
+            "title" => "Register",
+            "section" => "Profile",
+            "user" => $user,
+        ]);
+        // return redirect('/login')->with('success', 'anda harus masuk terlebih dahulu');
+    }
+
+    public function updateProfile(Request $request, User $user)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'username' => 'required',
+            'address' => 'required',
+        ]);
+        $validatedData['about'] = $request['about'];
+
+        $updatedUser = User::findOrFail($user->id);
+        // return $validatedData;
+        $updatedUser->update($validatedData);
+        return redirect('/')->with('success', 'Data have been updated!');
+
+        // return redirect('/login')->with('success', 'anda harus masuk terlebih dahulu');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

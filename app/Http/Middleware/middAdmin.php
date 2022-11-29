@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class middAdmin
 {
@@ -17,10 +18,14 @@ class middAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        $user = Auth::user();
-        if ($user->role == 'admin') {
-            return $next($request);
+        if (auth()->guest()) {
+            return redirect()->route('login');
+        }else{
+            $user = Auth::user();
+            if ($user->role == 'admin') {
+                return $next($request);
+            }
+            return redirect()->route('pesan');
         }
-        return redirect('/login');
     }
 }

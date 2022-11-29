@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('role')->default('pembeli');
             $table->string('email');
+            $table->string('about')->default('Not set');
+            $table->string('address')->default('Not set');
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('username');
             $table->string('password');
