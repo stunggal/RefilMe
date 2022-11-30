@@ -37,6 +37,14 @@ class TransaksiController extends Controller
         ]);
     }
 
+    public function showKeranjang()
+    {
+        return view('transaksi.keranjang', [
+            "title" => "Keranjang",
+            "section" => "pembeli",
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

@@ -41,6 +41,12 @@ Route::group(['middleware' => ['middPembeli']], function () {
     Route::get('/pesan/{barang}', [TransaksiController::class, 'create']);
 });
 
+Route::get('/user', [DashboardController::class, 'showListUser']);
+Route::post('/user/delete/{user}', [DashboardController::class, 'deleteUser']);
+Route::get('/user/{user}', [DashboardController::class, 'showUser']);
+Route::post('/user/{user}', [DashboardController::class, 'updateRoleUser']);
+
+Route::get('/keranjang', [TransaksiController::class, 'showKeranjang']);
 Route::get('/profile/{user}', [DashboardController::class, 'showProfile']);
 Route::post('/profile/{user}', [DashboardController::class, 'updateProfile']);
 

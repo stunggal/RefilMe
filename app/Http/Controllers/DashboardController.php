@@ -113,6 +113,40 @@ class DashboardController extends Controller
         // return redirect('/login')->with('success', 'anda harus masuk terlebih dahulu');
     }
 
+    public function showListUser()
+    {
+        $users = User::all();
+        return view('pengguna.index', [
+            "title" => "Pengguna",
+            "section" => "Master",
+            "users" => $users,
+        ]);
+    }
+
+    public function showUser(User $user)
+    {
+        return view('pengguna.updateRole', [
+            "title" => "Pengguna",
+            "section" => "Master",
+            "user" => $user,
+        ]);
+    }
+
+    public function updateRoleUser(User $user, Request $request)
+    {
+        $validatedData = $request->validate([
+            'role' => 'required',
+        ]);
+        $user->update($validatedData);
+        return redirect('/user')->with('success', 'Data have been updated!');
+    }
+
+    public function deleteUser(User $user)
+    {
+        $user->delete();
+        return redirect('/user')->with('success', 'Data have been updated!');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
