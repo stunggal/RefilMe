@@ -120,39 +120,37 @@
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link @if ($section == 'master') @else
-                collapsed @endif"
+                <a class="nav-link @if ($section == 'Admin') @else collapsed @endif"
                     data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-menu-button-wide"></i><span>Master</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-menu-button-wide"></i><span>Admin</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="components-nav" class="nav-content collapse @if ($section == 'master') show @endif"
+                <ul id="components-nav" class="nav-content collapse @if ($section == 'Admin') show @endif"
                     data-bs-parent="#sidebar-nav">
                     <li>
                         <a href="/barang">
-                            <i class="bi bi-circle"></i><span>Barang</span>
+                            <i class="bi bi-circle"></i><span>Data Barang</span>
                         </a>
                     </li>
                     <li>
                         <a href="/kurir">
-                            <i class="bi bi-circle"></i><span>Kurir</span>
+                            <i class="bi bi-circle"></i><span>Data Kurir</span>
                         </a>
                     </li>
                     <li>
                         <a href="/penguna">
-                            <i class="bi bi-circle"></i><span>Penguna</span>
+                            <i class="bi bi-circle"></i><span>Data Penguna</span>
                         </a>
                     </li>
                     <li>
                         <a href="/transaksi">
-                            <i class="bi bi-circle"></i><span>Transaksi</span>
+                            <i class="bi bi-circle"></i><span>Data Transaksi</span>
                         </a>
                     </li>
                 </ul>
             </li><!-- End Components Nav -->
 
             <li class="nav-item">
-                <a class="nav-link @if ($section == 'pembeli') @else
-                collapsed @endif"
+                <a class="nav-link @if ($section == 'pembeli') @else collapsed @endif"
                     data-bs-target="#pembeli" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-menu-button-wide"></i><span>Pembeli</span><i
                         class="bi bi-chevron-down ms-auto"></i>
@@ -161,26 +159,37 @@
                     data-bs-parent="#sidebar-nav">
                     <li>
                         <a href="/pesan">
-                            <i class="bi bi-circle"></i><span>Pesan</span>
+                            <i class="bi bi-circle"></i><span>Pesan Produk</span>
                         </a>
                     </li>
                     <li>
                         <a href="/kurir">
-                            <i class="bi bi-circle"></i><span>Kurir</span>
+                            <i class="bi bi-circle"></i><span>Keranjang</span>
                         </a>
                     </li>
                     <li>
                         <a href="/penguna">
-                            <i class="bi bi-circle"></i><span>Penguna</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/transaksi">
-                            <i class="bi bi-circle"></i><span>Transaksi</span>
+                            <i class="bi bi-circle"></i><span>Tranksaksi</span>
                         </a>
                     </li>
                 </ul>
             </li><!-- End Components Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link @if ($section == 'Kurir') @else collapsed @endif"
+                    data-bs-target="#kurir" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Kurir</span><i
+                        class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="kurir" class="nav-content collapse @if ($section == 'kurir') show @endif"
+                    data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/pesan">
+                            <i class="bi bi-circle"></i><span>Pengantaran</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Components Nav -->            
 
         </ul>
 
