@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('role')->default('pembeli');
             $table->string('email');
+            $table->string('image')->default('https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png');
             $table->string('about')->default('Not set');
             $table->string('address')->default('Not set');
             // $table->timestamp('email_verified_at')->nullable();

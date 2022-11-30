@@ -6,6 +6,7 @@ use App\Models\dashboard;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -93,11 +94,19 @@ class DashboardController extends Controller
             'email' => 'required',
             'username' => 'required',
             'address' => 'required',
+            'image' => 'image',
         ]);
-        $validatedData['about'] = $request['about'];
 
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+
+            $validatedData['image'] = $request->file('image')->store('user-pp');
+        }
+
+        $validatedData['about'] = $request['about'];
         $updatedUser = User::findOrFail($user->id);
-        // return $validatedData;
         $updatedUser->update($validatedData);
         return redirect('/')->with('success', 'Data have been updated!');
 
