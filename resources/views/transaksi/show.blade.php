@@ -39,35 +39,35 @@
                             <form>
 
                                 <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label">Nama Barang</label>
+                                    <label class="col-sm-4 col-form-label">Nama Barang</label>
                                     <div class="col-sm-10">
                                         <p class="card-text">{{ $barang->nama }}</p>
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label">Jenis</label>
+                                    <label class="col-sm-3 col-form-label">Jenis</label>
                                     <div class="col-sm-10">
                                         <p class="card-text">{{ $barang->jenis }}</p>
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label">Deskripsi</label>
+                                    <label class="col-sm-3 col-form-label">Deskripsi</label>
                                     <div class="col-sm-10">
                                         <p class="card-text">{{ $barang->deskripsi }}</p>
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label">Stok</label>
+                                    <label class="col-sm-3 col-form-label">Stok</label>
                                     <div class="col-sm-10">
                                         <p class="card-text">{{ $barang->stok }} L</p>
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label">Harga</label>
+                                    <label class="col-sm-3 col-form-label">Harga</label>
                                     <div class="col-sm-10">
                                         <p class="card-text">{{ $barang->harga_jual }} / L</p>
                                     </div>
@@ -85,13 +85,13 @@
                             <!-- Custom Styled Validation -->
                             <form class="row g-3 needs-validation" novalidate>
                                 <div class="col-md-4">
-                                    <label for="validationCustom01" class="form-label">First name</label>
-                                    <p class="card-text">nama depan user</p>
+                                    <label for="validationCustom01" class="form-label">User ID</label>
+                                    <p class="card-text">{{ Auth::user()->id }}</p>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label for="validationCustom01" class="form-label">Last name name</label>
-                                    <p class="card-text">nama depan user</p>
+                                    <label for="validationCustom01" class="form-label">User Name</label>
+                                    <p class="card-text">{{ Auth::user()->name }}</p>
                                 </div>
 
                                 <div class="col-md-12">

@@ -26,7 +26,7 @@
 
                                 <div class="card-body">
 
-                                    <h5 class="card-title">Our Produts <span>| Today</span></h5>
+                                    <h5 class="card-title">Our Products <span>| Today</span></h5>
 
                                     <div class="row align-items-top">
 
@@ -40,7 +40,7 @@
                                                         <h5 class="card-text">{{ $barang->jenis }}</h5>
                                                         <p class="card-text">{{ $barang->deskripsi }}</p>
                                                         <p class="card-text"><a href="/pesan/{{ $barang->id }}"
-                                                                class="btn btn-primary">order</a>
+                                                                class="btn btn-primary">Order</a>
                                                         </p>
                                                     </div>
                                                 </div><!-- End Card with an image on top -->
