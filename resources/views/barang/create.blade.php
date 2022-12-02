@@ -27,35 +27,56 @@
                                 <div class="row mb-3">
                                     <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="nama">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label">Jenis</label>
+                                    <label for="inputText" class="col-sm-2 col-form-label">Jenis</label>
                                     <div class="col-sm-10">
-                                        <select class="form-select" aria-label="Default select example">
-                                                <option selected disabled>Pilih jenis barang</option>
-                                                <option value="1">Sabun Mandi</option>
-                                                <option value="2">Sabun Cuci Piring</option>
-                                                <option value="4">Sabun Cuci Tangan</option>
-                                                <option value="5">Hand Sanitizer</option>
-                                                <option value="6">Sampo</option>
-                                            </select>
+                                        <input type="text" class="form-control" name="jenis">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">Gambar</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="file" id="formFile" name="gambar">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">Deskripsi</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="deskripsi">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">Harga Beli</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="harga_beli">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">Harga Jual</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="harga_jual">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <label for="inputNumber" class="col-sm-2 col-form-label">Stok</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control">
+                                        <input type="number" class="form-control" name="stok">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label">Submit</label>
+                                    <label class="col-sm-2 col-form-label"> </label>
                                     <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" class="btn btn-primary">Input</button>
                                     </div>
                                 </div>
 
