@@ -23,7 +23,7 @@
                             <h5 class="card-title">General Form Elements</h5>
 
                             <!-- General Form Elements -->
-                            <form>
+                            <form method="">
                                 <div class="row mb-3">
                                     <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                                     <div class="col-sm-10">
