@@ -25,6 +25,8 @@ Route::group(['middleware' => ['middAdmin']], function () {
 Route::get('/barang', [BarangController::class, 'index'])->name('barang');
 Route::get('/barang/create', [BarangController::class, 'create']);
 Route::post('/barang/create', [BarangController::class, 'store']);
+Route::get('/barang/{barang}', [BarangController::class, 'edit']);
+Route::post('/barang/{barang}', [BarangController::class, 'update']);
 
 Route::group(['middleware' => ['middKurir']], function () {
 });

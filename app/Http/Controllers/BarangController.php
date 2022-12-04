@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\barang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BarangController extends Controller
 {
@@ -43,7 +44,20 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'jenis' => 'required',
+            'gambar' => 'required',
+            'deskripsi' => 'required',
+            'harga_beli' => 'required',
+            'harga_jual' => 'required',
+            'stok' => 'required',
+        ]);
+
+        $validatedData['gambar'] = $request->file('gambar')->store('barang');
+
+        barang::create($validatedData);
+        return redirect('/barang');
     }
 
     /**
@@ -65,7 +79,12 @@ class BarangController extends Controller
      */
     public function edit(barang $barang)
     {
-        //
+        return view('barang.update', [
+            "title" => "Update Barang",
+            "section" => "master",
+            "barang" => $barang,
+        ]);
+        return $barang;
     }
 
     /**
@@ -77,7 +96,27 @@ class BarangController extends Controller
      */
     public function update(Request $request, barang $barang)
     {
-        //
+        $validatedData = $request->validate([
+            "nama" => "required",
+            "jenis" => "required",
+            "deskripsi" => "required",
+            "harga_jual" => "required",
+            "harga_beli" => "required",
+            "stok" => "required",
+            "gambar" => "image",
+            "harga_beli" => "required",
+        ]);
+
+        if ($request->file('gambar')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+
+            $validatedData['gambar'] = $request->file('gambar')->store('barang');
+        }
+
+        $barang->update($validatedData);
+        return redirect('/barang')->with('success', 'Data have been updated!');
     }
 
     /**

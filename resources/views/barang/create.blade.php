@@ -23,7 +23,8 @@
                             <h5 class="card-title">General Form Elements</h5>
 
                             <!-- General Form Elements -->
-                            <form method="">
+                            <form method="post" enctype="multipart/form-data">
+                                @csrf
                                 <div class="row mb-3">
                                     <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                                     <div class="col-sm-10">
@@ -55,14 +56,14 @@
                                 <div class="row mb-3">
                                     <label for="inputText" class="col-sm-2 col-form-label">Harga Beli</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="harga_beli">
+                                        <input type="number" class="form-control" name="harga_beli">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <label for="inputText" class="col-sm-2 col-form-label">Harga Jual</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="harga_jual">
+                                        <input type="number" class="form-control" name="harga_jual">
                                     </div>
                                 </div>
 

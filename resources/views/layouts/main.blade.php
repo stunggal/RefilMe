@@ -137,7 +137,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/penguna">
+                        <a href="/user">
                             <i class="bi bi-circle"></i><span>Data Penguna</span>
                         </a>
                     </li>
@@ -150,8 +150,8 @@
             </li><!-- End Components Nav -->
 
             <li class="nav-item">
-                <a class="nav-link @if ($section == 'pembeli') @else collapsed @endif"
-                    data-bs-target="#pembeli" data-bs-toggle="collapse" href="#">
+                <a class="nav-link @if ($section == 'pembeli') @else collapsed @endif" data-bs-target="#pembeli"
+                    data-bs-toggle="collapse" href="#">
                     <i class="bi bi-menu-button-wide"></i><span>Pembeli</span><i
                         class="bi bi-chevron-down ms-auto"></i>
                 </a>
@@ -176,10 +176,9 @@
             </li><!-- End Components Nav -->
 
             <li class="nav-item">
-                <a class="nav-link @if ($section == 'Kurir') @else collapsed @endif"
-                    data-bs-target="#kurir" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-menu-button-wide"></i><span>Kurir</span><i
-                        class="bi bi-chevron-down ms-auto"></i>
+                <a class="nav-link @if ($section == 'Kurir') @else collapsed @endif" data-bs-target="#kurir"
+                    data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Kurir</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="kurir" class="nav-content collapse @if ($section == 'kurir') show @endif"
                     data-bs-parent="#sidebar-nav">
@@ -189,7 +188,7 @@
                         </a>
                     </li>
                 </ul>
-            </li><!-- End Components Nav -->            
+            </li><!-- End Components Nav -->
 
         </ul>
 
