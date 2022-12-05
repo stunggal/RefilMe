@@ -15,14 +15,10 @@ return new class extends Migration
     {
         Schema::create('pesanan', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
             $table->string('status_pesanan');
             $table->string('status_pembayaran');
             $table->string('status_pengiriman');
-            $table->double('subtotal', 12, 2)->default(0);
             $table->foreignId('kurir_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->timestamps();
         });
     }
 
