@@ -22,7 +22,7 @@
 
                         <!-- Recent Sales -->
                         <div class="col-12">
-                            <div class="card recent-sales overflow-auto">
+                            <div class="card top-selling overflow-auto">
 
                                 <div class="card-body">
 
@@ -37,6 +37,7 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">No</th>
+                                                <th scope="col">Gambar</th>
                                                 <th scope="col">Barang</th>
                                                 <th scope="col">Jenis</th>
                                                 <th scope="col">Harga per ml</th>
@@ -54,12 +55,13 @@
                                                         $i++;
                                                     @endphp
                                                     <th scope="row">{{ $i }}</th>
+                                                    <td><img src="/storage/{{ $barang->gambar }}" alt=""></td>
                                                     <td>{{ $barang->nama }}</td>
                                                     <td>{{ $barang->jenis }}</td>
                                                     <td>Rp. {{ $barang->harga_jual }}</td>
                                                     <td>{{ $barang->stok }} ml</td>
-                                                    <td><button type="button" class="btn btn-primary"><i
-                                                                class="bi bi-arrow-bar-up"></i></button>
+                                                    <td><a href="/barang/{{ $barang->id }}"
+                                                            class="btn btn-primary bi bi-pencil"></a></button>
                                                     </td>
                                                 </tr>
                                             @endforeach

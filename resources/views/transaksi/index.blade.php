@@ -34,7 +34,8 @@
                                             <div class="col-lg-3">
                                                 <!-- Card with an image on top -->
                                                 <div class="card">
-                                                    <img src="{{ $barang->gambar }}" class="card-img-top" alt="...">
+                                                    <img src="/storage/{{ $barang->gambar }}" class="card-img-top"
+                                                        alt="...">
                                                     <div class="card-body">
                                                         <h5 class="card-title">{{ $barang->nama }}</h5>
                                                         <h5 class="card-text">{{ $barang->jenis }}</h5>

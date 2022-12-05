@@ -21,25 +21,28 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [DashboardController::class, 'index'])->name('dash');
 
 Route::group(['middleware' => ['middAdmin']], function () {
-    Route::get('/barang', [BarangController::class, 'index'])->name('barang');
-    Route::get('/barang/create', [BarangController::class, 'create']);
 });
+Route::get('/barang', [BarangController::class, 'index'])->name('barang');
+Route::get('/barang/create', [BarangController::class, 'create']);
+Route::post('/barang/create', [BarangController::class, 'store']);
+Route::get('/barang/{barang}', [BarangController::class, 'edit']);
+Route::post('/barang/{barang}', [BarangController::class, 'update']);
 
 Route::group(['middleware' => ['middKurir']], function () {
-    Route::get('/kurir', [KurirController::class, 'index']);
 });
+Route::get('/kurir', [KurirController::class, 'index']);
 
 Route::group(['middleware' => ['guest']], function () {
-    Route::get('/login', [DashboardController::class, 'login'])->name('login');
-    Route::get('/register', [DashboardController::class, 'register']);
-    Route::post('/register', [DashboardController::class, 'createAnAccount']);
-    Route::post('/login', [DashboardController::class, 'loginIntoAnAccount']);
 });
+Route::get('/login', [DashboardController::class, 'login'])->name('login');
+Route::get('/register', [DashboardController::class, 'register']);
+Route::post('/register', [DashboardController::class, 'createAnAccount']);
+Route::post('/login', [DashboardController::class, 'loginIntoAnAccount']);
 
 Route::get('/pesan', [TransaksiController::class, 'index'])->name('pesan');
 Route::group(['middleware' => ['middPembeli']], function () {
-    Route::get('/pesan/{barang}', [TransaksiController::class, 'create']);
 });
+Route::get('/pesan/{barang}', [TransaksiController::class, 'create']);
 
 Route::get('/user', [DashboardController::class, 'showListUser']);
 Route::post('/user/delete/{user}', [DashboardController::class, 'deleteUser']);
