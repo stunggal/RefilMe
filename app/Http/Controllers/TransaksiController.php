@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\barang;
+use App\Models\barangPesanan;
 use App\Models\transaksi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TransaksiController extends Controller
 {
@@ -30,10 +32,14 @@ class TransaksiController extends Controller
      */
     public function create(barang $barang)
     {
+        $transaksis = transaksi::all();
+        $current_transaksi = count($transaksis) + 1;
+
         return view('transaksi.show', [
             "title" => "Order Somethings",
             "section" => "pembeli",
             "barang" => $barang,
+            "current_transaksi" => $current_transaksi,
         ]);
     }
 
@@ -51,9 +57,32 @@ class TransaksiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, barang $barang)
     {
-        //
+        $transaksi = transaksi::where('user_id', Auth::user()->id);
+        $transaksi = $transaksi->where('status', 'waiting')->orderBy('id', 'DESC')->first();
+
+        if (!$transaksi) {
+            $validatedDataTransaksi = $request->validate([
+                'alamat' => 'required',
+            ]);
+            $validatedDataTransaksi['user_id'] = Auth::user()->id;
+
+            transaksi::create($validatedDataTransaksi);
+
+            $transaksi = transaksi::where('user_id', Auth::user()->id);
+            $transaksi = $transaksi->where('status', 'waiting')->orderBy('id', 'DESC')->first();
+        }
+
+        $validatedDataBarangPesanan = $request->validate([
+            'banyaknya' => 'required|numeric|min:1',
+        ]);
+        $validatedDataBarangPesanan['transaksi_id'] = $transaksi->id;
+        $validatedDataBarangPesanan['barang_id'] = $barang->id;
+
+        barangPesanan::create($validatedDataBarangPesanan);
+
+        return redirect('/barang');
     }
 
     /**
@@ -65,6 +94,11 @@ class TransaksiController extends Controller
     public function show(transaksi $transaksi)
     {
         //
+    }
+
+    public function showBarang(barang $barang)
+    {
+        return $barang;
     }
 
     /**

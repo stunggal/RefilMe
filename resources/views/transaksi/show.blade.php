@@ -23,8 +23,8 @@
                             <div class="card mb-3">
                                 <div class="row g-0">
                                     <div class="col-md-4">
-                                        {{-- <img src="/assets/img/card.jpg" class="img-fluid rounded-start" alt="..."> --}}
-                                        <img src="{{ $barang->gambar }}" class="img-fluid rounded-start" alt="...">
+                                        <img src="/storage/{{ $barang->gambar }}" class="img-fluid rounded-start"
+                                            alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -83,10 +83,15 @@
                         <div class="card-body">
                             <h5 class="card-title">Beli Barang ini</h5>
                             <!-- Custom Styled Validation -->
-                            <form class="row g-3 needs-validation" novalidate>
+                            <form class="row g-3 needs-validation" method="post" novalidate>
+                                @csrf
+
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+
                                 <div class="col-md-4">
-                                    <label for="validationCustom01" class="form-label">User ID</label>
-                                    <p class="card-text">{{ Auth::user()->id }}</p>
+                                    <label for="validationCustom01" class="form-label">Nomor Pesanan</label>
+                                    <p class="card-text">{{ $current_transaksi }}</p>
                                 </div>
 
                                 <div class="col-md-4">
@@ -96,15 +101,16 @@
 
                                 <div class="col-md-12">
                                     <label for="validationCustom03" class="form-label">Alamat</label>
-                                    <input type="text" class="form-control" id="validationCustom03" required>
-                                    <div class="invalid-feedback">
+                                    <input type="text" class="form-control" name="alamat" id="validationCustom03"
+                                        required>
+                                    <button class="invalid-feedback" type="submit">
                                         Harap masukkan alamat.
-                                    </div>
+                                    </button>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="validationCustom04" class="form-label">Jumlah Pesan</label>
-                                    <input type="number" class="form-control" id="validationCustom03" value="1"
-                                        required>
+                                    <input type="number" class="form-control" name="banyaknya" id="validationCustom03"
+                                        value="1" required>
                                     <div class="invalid-feedback">
                                         Harap angka yang valid.
                                     </div>

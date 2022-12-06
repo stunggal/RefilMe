@@ -43,6 +43,7 @@ Route::get('/pesan', [TransaksiController::class, 'index'])->name('pesan');
 Route::group(['middleware' => ['middPembeli']], function () {
 });
 Route::get('/pesan/{barang}', [TransaksiController::class, 'create']);
+Route::post('/pesan/{barang}', [TransaksiController::class, 'store']);
 
 Route::get('/user', [DashboardController::class, 'showListUser']);
 Route::post('/user/delete/{user}', [DashboardController::class, 'deleteUser']);
