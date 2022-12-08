@@ -2,6 +2,7 @@
 
 {{-- asdasdasd --}}
 
+
 @section('content')
     <main id="main" class="main">
 
