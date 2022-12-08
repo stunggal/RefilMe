@@ -102,7 +102,8 @@ class DashboardController extends Controller
                 Storage::delete($request->oldImage);
             }
 
-            $validatedData['image'] = $request->file('image')->store('user-pp');
+            $validatedData['image'] = $request->file('image')->store('public/user-pp');
+            $validatedData['image'] = str_replace("public/", "", $validatedData['image']);
         }
 
         $validatedData['about'] = $request['about'];

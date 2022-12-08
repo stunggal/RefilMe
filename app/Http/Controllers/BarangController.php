@@ -54,7 +54,9 @@ class BarangController extends Controller
             'stok' => 'required',
         ]);
 
-        $validatedData['gambar'] = $request->file('gambar')->store('barang');
+        $validatedData['gambar'] = $request->file('gambar')->store('public/barang');
+
+        $validatedData['gambar'] = str_replace("public/", "", $validatedData['gambar']);
 
         barang::create($validatedData);
         return redirect('/barang');
@@ -112,7 +114,8 @@ class BarangController extends Controller
                 Storage::delete($request->oldImage);
             }
 
-            $validatedData['gambar'] = $request->file('gambar')->store('barang');
+            $validatedData['gambar'] = $request->file('gambar')->store('public/barang');
+            $validatedData['gambar'] = str_replace("public/", "", $validatedData['gambar']);
         }
 
         $barang->update($validatedData);
