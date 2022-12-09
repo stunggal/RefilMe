@@ -45,9 +45,11 @@ class TransaksiController extends Controller
 
     public function showKeranjang()
     {
+        $transaksis = transaksi::where('user_id', Auth::user()->id)->get();
         return view('transaksi.keranjang', [
             "title" => "Keranjang",
             "section" => "pembeli",
+            "transaksis" => $transaksis,
         ]);
     }
 
@@ -62,16 +64,25 @@ class TransaksiController extends Controller
         $transaksi = transaksi::where('user_id', Auth::user()->id);
         $transaksi = $transaksi->where('status', 'waiting')->orderBy('id', 'DESC')->first();
 
+
         if (!$transaksi) {
             $validatedDataTransaksi = $request->validate([
                 'alamat' => 'required',
             ]);
+            $validatedDataTransaksi['tagihan'] = $barang->harga_jual * $request->banyaknya;
             $validatedDataTransaksi['user_id'] = Auth::user()->id;
 
             transaksi::create($validatedDataTransaksi);
 
             $transaksi = transaksi::where('user_id', Auth::user()->id);
             $transaksi = $transaksi->where('status', 'waiting')->orderBy('id', 'DESC')->first();
+        } else {
+            $transaksi = transaksi::where('user_id', Auth::user()->id);
+            $transaksi = $transaksi->where('status', 'waiting')->first();
+
+            $validatedDataTransaksi['tagihan'] = $transaksi->tagihan + ($barang->harga_jual * $request->banyaknya);
+
+            $transaksi->update($validatedDataTransaksi);
         }
 
         $validatedDataBarangPesanan = $request->validate([
@@ -109,7 +120,35 @@ class TransaksiController extends Controller
      */
     public function edit(transaksi $transaksi)
     {
-        //
+        $barangs = barangPesanan::where('transaksi_id', $transaksi->id)->get();
+        return view('transaksi.showListBarang', [
+            "title" => "Keranjang",
+            "section" => "pembeli",
+            "barangs" => $barangs,
+        ]);
+    }
+
+    public function editBarang(barangPesanan $barangPesanan)
+    {
+        $transaksis = transaksi::all();
+        $current_transaksi = count($transaksis) + 1;
+
+        return view('transaksi.editBarang', [
+            "title" => "Order Somethings",
+            "section" => "pembeli",
+            "barangPesanan" => $barangPesanan,
+            "current_transaksi" => $current_transaksi,
+        ]);
+    }
+
+    public function updateBarang(Request $request, barangPesanan $barangPesanan)
+    {
+        $validatedData = $request->validate([
+            'banyaknya' => 'required|numeric|min:1',
+        ]);
+        $barangPesanan->update($validatedData);
+        return redirect('/keranjang')->with('success', 'Data have been updated!');
+        return $validatedData;
     }
 
     /**
@@ -132,6 +171,15 @@ class TransaksiController extends Controller
      */
     public function destroy(transaksi $transaksi)
     {
-        //
+        $transaksi->delete();
+        return redirect('/keranjang')->with('success', 'Data have been deleted!');
+        return $transaksi;
+    }
+
+    public function destroyBarang(barangPesanan $barangPesanan)
+    {
+        $barangPesanan->delete();
+        return redirect('/keranjang')->with('success', 'Data have been deleted!');
+        return $barangPesanan;
     }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KurirController;
 use App\Http\Controllers\NotFoundController;
+use App\Http\Controllers\PesanaanController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +31,7 @@ Route::post('/barang/{barang}', [BarangController::class, 'update']);
 
 Route::group(['middleware' => ['middKurir']], function () {
 });
-Route::get('/kurir', [KurirController::class, 'index']);
+Route::get('/pesanan', [PesanaanController::class, 'index']);
 
 Route::group(['middleware' => ['guest']], function () {
 });
@@ -51,6 +52,11 @@ Route::get('/user/{user}', [DashboardController::class, 'showUser']);
 Route::post('/user/{user}', [DashboardController::class, 'updateRoleUser']);
 
 Route::get('/keranjang', [TransaksiController::class, 'showKeranjang']);
+Route::post('/keranjang/delete/{transaksi}', [TransaksiController::class, 'destroy']);
+Route::get('/keranjang/{transaksi}', [TransaksiController::class, 'edit']);
+Route::get('/keranjang/barang/{barangPesanan}', [TransaksiController::class, 'editBarang']);
+Route::post('/keranjang/barang/delete/{barangPesanan}', [TransaksiController::class, 'destroyBarang']);
+Route::post('/keranjang/barang/{barangPesanan}', [TransaksiController::class, 'updateBarang']);
 Route::get('/profile/{user}', [DashboardController::class, 'showProfile']);
 Route::post('/profile/{user}', [DashboardController::class, 'updateProfile']);
 

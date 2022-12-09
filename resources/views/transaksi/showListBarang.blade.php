@@ -23,7 +23,7 @@
 
                         <!-- Recent Sales -->
                         <div class="col-12">
-                            <div class="card recent-sales overflow-auto">
+                            <div class="card top-selling overflow-auto">
 
                                 <div class="card-body">
                                     <h5 class="card-title">Pesanan anda</h5>
@@ -31,25 +31,30 @@
                                     <table class="table table-borderless datatable">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Id Pesanan</th>
-                                                <th scope="col">Customer</th>
-                                                <th scope="col">Total</th>
-                                                <th scope="col">Status</th>
+                                                <th scope="col">Id Barang</th>
+                                                <th scope="col">Gambar</th>
+                                                <th scope="col">Nama</th>
+                                                <th scope="col">Jenis</th>
+                                                <th scope="col">Banyaknya</th>
+                                                <th scope="col">Harga</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($transaksis as $transaksi)
+                                            @foreach ($barangs as $barangs)
                                                 <tr>
-                                                    <th scope="row"><a href="#">{{ $transaksi->id }}</a></th>
-                                                    <td>{{ $transaksi->user->username }}</td>
-                                                    <td>{{ $transaksi->tagihan }}</td>
-                                                    <td><span class="badge bg-success">{{ $transaksi->status }}</span></td>
+                                                    <th scope="row"><a href="#">{{ $barangs->barang->id }}</a></th>
+                                                    <td><img src="/storage/{{ $barangs->barang->gambar }}" alt="">
+                                                    </td>
+                                                    <td>{{ $barangs->barang->nama }}</td>
+                                                    <td>{{ $barangs->barang->jenis }}</td>
+                                                    <td>{{ $barangs->banyaknya }}</td>
+                                                    <td>{{ $barangs->barang->harga_jual }}</td>
                                                     <td>
-                                                        <form action="/keranjang/delete/{{ $transaksi->id }}"
+                                                        <form action="/keranjang/barang/delete/{{ $barangs->id }}"
                                                             method="post">
                                                             @csrf
-                                                            <a href="/keranjang/{{ $transaksi->id }}"
+                                                            <a href="/keranjang/barang/{{ $barangs->id }}"
                                                                 class="btn btn-primary bi bi-pencil"></a>
                                                             <button type="submit"
                                                                 class="btn btn-danger bi bi-trash"></button>

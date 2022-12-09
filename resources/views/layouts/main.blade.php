@@ -163,7 +163,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/kurir">
+                        <a href="/keranjang">
                             <i class="bi bi-circle"></i><span>Keranjang</span>
                         </a>
                     </li>

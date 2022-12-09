@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->foreignId('kurir')->default('1');
             $table->string('alamat');
             $table->string('tagihan')->default('0');
             $table->string('status')->default('waiting');
