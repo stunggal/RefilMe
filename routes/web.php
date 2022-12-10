@@ -61,6 +61,14 @@ Route::get('/profile/{user}', [DashboardController::class, 'showProfile']);
 Route::post('/profile/{user}', [DashboardController::class, 'updateProfile']);
 
 
+
+
+Route::get('/antar', [KurirController::class, 'index']);
+Route::get('/antar/{transaksi}', [KurirController::class, 'update']);
+Route::get('/mineantar', [KurirController::class, 'indexPersonal']);
+Route::get('/mineantar/{transaksi}', [KurirController::class, 'updateStatus']);
+
+
 Route::get('/logout', [DashboardController::class, 'logout']);
 
 

@@ -183,8 +183,13 @@
                 <ul id="kurir" class="nav-content collapse @if ($section == 'kurir') show @endif"
                     data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="/pesan">
-                            <i class="bi bi-circle"></i><span>Pengantaran</span>
+                        <a href="/antar">
+                            <i class="bi bi-circle"></i><span>Antarkan Barang</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mineantar">
+                            <i class="bi bi-circle"></i><span>Barangku</span>
                         </a>
                     </li>
                 </ul>

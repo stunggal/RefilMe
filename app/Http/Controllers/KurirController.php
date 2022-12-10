@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\kurir;
+use App\Models\transaksi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KurirController extends Controller
 {
@@ -14,9 +16,22 @@ class KurirController extends Controller
      */
     public function index()
     {
+        $transaksis = transaksi::where('status', 'waiting')->get();
         return view('kurir.index', [
             "title" => "Kurir",
             "section" => "Master",
+            "transaksis" => $transaksis,
+        ]);
+    }
+
+    public function indexPersonal()
+    {
+        $transaksis = transaksi::where('status', 'proses');
+        $transaksis = $transaksis->where('kurir', Auth::user()->id)->get();
+        return view('kurir.index', [
+            "title" => "Kurir",
+            "section" => "Master",
+            "transaksis" => $transaksis,
         ]);
     }
 
@@ -70,9 +85,19 @@ class KurirController extends Controller
      * @param  \App\Models\kurir  $kurir
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, kurir $kurir)
+    public function update(Request $request, transaksi $transaksi)
     {
-        //
+        $kurir['kurir'] = Auth::user()->id;
+        $kurir['status'] = 'proses';
+        $transaksi->update($kurir);
+        return redirect('/')->with('success', 'Data have been updated!');
+    }
+
+    public function updateStatus(Request $request, transaksi $transaksi)
+    {
+        $kurir['status'] = 'selesai';
+        $transaksi->update($kurir);
+        return redirect('/')->with('success', 'Data have been updated!');
     }
 
     /**
