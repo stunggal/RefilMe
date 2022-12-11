@@ -28,7 +28,7 @@ class KurirController extends Controller
     {
         $transaksis = transaksi::where('status', 'proses');
         $transaksis = $transaksis->where('kurir', Auth::user()->id)->get();
-        return view('kurir.index', [
+        return view('kurir.indexPersonal', [
             "title" => "Kurir",
             "section" => "Master",
             "transaksis" => $transaksis,
@@ -90,14 +90,15 @@ class KurirController extends Controller
         $kurir['kurir'] = Auth::user()->id;
         $kurir['status'] = 'proses';
         $transaksi->update($kurir);
-        return redirect('/')->with('success', 'Data have been updated!');
+        return redirect('/')->with('success', 'Data have been update!');
     }
 
     public function updateStatus(Request $request, transaksi $transaksi)
+    
     {
-        $kurir['status'] = 'selesai';
+        $kurir['status'] = 'Selesai';
         $transaksi->update($kurir);
-        return redirect('/')->with('success', 'Data have been updated!');
+        return redirect('/')->with('success', 'Data have been update!');
     }
 
     /**

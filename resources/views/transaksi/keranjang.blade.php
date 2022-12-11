@@ -33,7 +33,7 @@
                                             <tr>
                                                 <th scope="col">Id Pesanan</th>
                                                 <th scope="col">Customer</th>
-                                                <th scope="col">Total</th>
+                                                <th scope="col">Total Harga</th>
                                                 <th scope="col">Status</th>
                                                 <th scope="col">Action</th>
                                             </tr>

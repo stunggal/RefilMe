@@ -47,8 +47,8 @@
                                                     <td>{{ $transaksi->alamat }}</td>
                                                     <td>{{ $transaksi->status }}</td>
                                                     <td>Rp. {{ $transaksi->tagihan }}</td>
-                                                    <td><a href="/antar/{{ $transaksi->id }}"
-                                                            class="btn btn-primary bi bi-bag-plus"></a></button>
+                                                    <td><a href="/mineantar/{{ $transaksi->id }}"
+                                                            class="btn btn-success bi bi-bag-check"></a></button>
                                                     </td>
                                                 </tr>
                                             @endforeach
