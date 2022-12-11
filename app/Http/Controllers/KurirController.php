@@ -90,7 +90,7 @@ class KurirController extends Controller
         $kurir['kurir'] = Auth::user()->id;
         $kurir['status'] = 'proses';
         $transaksi->update($kurir);
-        return redirect('/')->with('success', 'Data have been update!');
+        return redirect('/mineantar')->with('success', 'Data have been updated!');
     }
 
     public function updateStatus(Request $request, transaksi $transaksi)
@@ -98,7 +98,7 @@ class KurirController extends Controller
     {
         $kurir['status'] = 'Selesai';
         $transaksi->update($kurir);
-        return redirect('/')->with('success', 'Data have been update!');
+        return redirect('/')->with('success', 'Produk pelanggan sudah di isi ulang:)');
     }
 
     /**
