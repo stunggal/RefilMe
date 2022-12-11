@@ -93,7 +93,7 @@ class TransaksiController extends Controller
 
         barangPesanan::create($validatedDataBarangPesanan);
 
-        return redirect('/barang');
+        return redirect('/pesan');
     }
 
     /**

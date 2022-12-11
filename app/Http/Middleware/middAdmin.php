@@ -19,13 +19,14 @@ class middAdmin
     public function handle(Request $request, Closure $next)
     {
         if (auth()->guest()) {
-            return redirect()->route('login');
-        }else{
+            return redirect()->route('login')->with('success', 'Anda harus login terlebih dahulu!');
+        } else {
             $user = Auth::user();
             if ($user->role == 'admin') {
                 return $next($request);
             }
-            return redirect()->route('pesan');
+            return redirect()->route('dash')->with('success', 'Anda tidak memiliki akses!');
         }
+        return redirect()->route('dash')->with('success', 'Anda tidak memiliki akses!');
     }
 }

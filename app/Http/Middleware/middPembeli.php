@@ -17,9 +17,15 @@ class middPembeli
      */
     public function handle(Request $request, Closure $next)
     {
-        $user = Auth::user();
-        if ($user->role == 'pembeli') {
-            return $next($request);
+        if (auth()->guest()) {
+            return redirect()->route('login')->with('success', 'Anda harus login terlebih dahulu!');
+        } else {
+            $user = Auth::user();
+            if ($user->role == 'pembeli') {
+                return $next($request);
+            }
+            return redirect()->route('dash')->with('success', 'Anda tidak memiliki akses!');
         }
+        return redirect()->route('dash')->with('success', 'Anda tidak memiliki akses!');
     }
 }

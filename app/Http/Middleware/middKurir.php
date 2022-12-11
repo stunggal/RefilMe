@@ -17,9 +17,15 @@ class middKurir
      */
     public function handle(Request $request, Closure $next)
     {
-        $user = Auth::user();
-        if ($user->role == 'kurir') {
-            return $next($request);
+        if (auth()->guest()) {
+            return redirect()->route('login')->with('success', 'Anda harus login terlebih dahulu!');
+        } else {
+            $user = Auth::user();
+            if ($user->role == 'kurir') {
+                return $next($request);
+            }
+            return redirect()->route('dash')->with('success', 'Anda tidak memiliki akses!');
         }
+        return redirect()->route('dash')->with('success', 'Anda tidak memiliki akses!');
     }
 }

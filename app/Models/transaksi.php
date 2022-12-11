@@ -14,6 +14,7 @@ class transaksi extends Model
         'alamat',
         'tagihan',
         'status',
+        'kurir',
     ];
 
     public function user()

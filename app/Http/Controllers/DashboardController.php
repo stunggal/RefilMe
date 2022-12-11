@@ -50,7 +50,7 @@ class DashboardController extends Controller
         $validatedData['password'] = bcrypt($validatedData['password']);
         // return $validatedData;
         User::create($validatedData);
-        return redirect('/login');
+        return redirect('/login')->with('success', 'penfdaftaran berhasil silahkan login!');
     }
 
     public function loginIntoAnAccount(Request $request)
@@ -62,7 +62,7 @@ class DashboardController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('/pesan');
+            return redirect('/');
         }
         return redirect('/login');;
     }
