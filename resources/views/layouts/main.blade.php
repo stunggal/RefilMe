@@ -8,6 +8,7 @@
     <title>RefilMe | {{ $title }}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
+    <meta content="bismillah4350@gmail.com" name="dicoding:email">
 
     <!-- Favicons -->
     <link href="/assets/img/favicon.png" rel="icon">
@@ -119,73 +120,75 @@
                 </a>
             </li><!-- End Dashboard Nav -->
 
-            @if (Auth::user()->role == 'admin')
-                <li class="nav-item">
-                    <a class="nav-link @if ($section == 'Admin') @else collapsed @endif"
-                        data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                        <i class="bi bi-menu-button-wide"></i><span>Admin</span><i
-                            class="bi bi-chevron-down ms-auto"></i>
-                    </a>
-                    <ul id="components-nav" class="nav-content collapse @if ($section == 'Admin') show @endif"
-                        data-bs-parent="#sidebar-nav">
-                        <li>
-                            <a href="/barang">
-                                <i class="bi bi-circle"></i><span>Data Barang</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/user">
-                                <i class="bi bi-circle"></i><span>Data Penguna</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li><!-- End Components Nav -->
-            @endif
+            @if (Auth::user())
+                @if (Auth::user()->role == 'admin')
+                    <li class="nav-item">
+                        <a class="nav-link @if ($section == 'Admin') @else collapsed @endif"
+                            data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                            <i class="bi bi-menu-button-wide"></i><span>Admin</span><i
+                                class="bi bi-chevron-down ms-auto"></i>
+                        </a>
+                        <ul id="components-nav"
+                            class="nav-content collapse @if ($section == 'Admin') show @endif"
+                            data-bs-parent="#sidebar-nav">
+                            <li>
+                                <a href="/barang">
+                                    <i class="bi bi-circle"></i><span>Data Barang</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/user">
+                                    <i class="bi bi-circle"></i><span>Data Penguna</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li><!-- End Components Nav -->
+                @endif
 
-            @if (Auth::user()->role == 'pembeli')
-                <li class="nav-item">
-                    <a class="nav-link @if ($section == 'pembeli') @else collapsed @endif"
-                        data-bs-target="#pembeli" data-bs-toggle="collapse" href="#">
-                        <i class="bi bi-menu-button-wide"></i><span>Pembeli</span><i
-                            class="bi bi-chevron-down ms-auto"></i>
-                    </a>
-                    <ul id="pembeli" class="nav-content collapse @if ($section == 'pembeli') show @endif"
-                        data-bs-parent="#sidebar-nav">
-                        <li>
-                            <a href="/pesan">
-                                <i class="bi bi-circle"></i><span>Pesan Produk</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/keranjang">
-                                <i class="bi bi-circle"></i><span>Keranjang</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li><!-- End Components Nav -->
-            @endif
-
-            @if (Auth::user()->role == 'kurir')
-                <li class="nav-item">
-                    <a class="nav-link @if ($section == 'Kurir') @else collapsed @endif"
-                        data-bs-target="#kurir" data-bs-toggle="collapse" href="#">
-                        <i class="bi bi-menu-button-wide"></i><span>Kurir</span><i
-                            class="bi bi-chevron-down ms-auto"></i>
-                    </a>
-                    <ul id="kurir" class="nav-content collapse @if ($section == 'kurir') show @endif"
-                        data-bs-parent="#sidebar-nav">
-                        <li>
-                            <a href="/antar">
-                                <i class="bi bi-circle"></i><span>Antarkan Barang</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/mineantar">
-                                <i class="bi bi-circle"></i><span>Barangku</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li><!-- End Components Nav -->
+                @if (Auth::user()->role == 'pembeli')
+                    <li class="nav-item">
+                        <a class="nav-link @if ($section == 'pembeli') @else collapsed @endif"
+                            data-bs-target="#pembeli" data-bs-toggle="collapse" href="#">
+                            <i class="bi bi-menu-button-wide"></i><span>Pembeli</span><i
+                                class="bi bi-chevron-down ms-auto"></i>
+                        </a>
+                        <ul id="pembeli" class="nav-content collapse @if ($section == 'pembeli') show @endif"
+                            data-bs-parent="#sidebar-nav">
+                            <li>
+                                <a href="/pesan">
+                                    <i class="bi bi-circle"></i><span>Pesan Produk</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/keranjang">
+                                    <i class="bi bi-circle"></i><span>Keranjang</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li><!-- End Components Nav -->
+                @endif
+                @if (Auth::user()->role == 'kurir')
+                    <li class="nav-item">
+                        <a class="nav-link @if ($section == 'Kurir') @else collapsed @endif"
+                            data-bs-target="#kurir" data-bs-toggle="collapse" href="#">
+                            <i class="bi bi-menu-button-wide"></i><span>Kurir</span><i
+                                class="bi bi-chevron-down ms-auto"></i>
+                        </a>
+                        <ul id="kurir" class="nav-content collapse @if ($section == 'kurir') show @endif"
+                            data-bs-parent="#sidebar-nav">
+                            <li>
+                                <a href="/antar">
+                                    <i class="bi bi-circle"></i><span>Antarkan Barang</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/mineantar">
+                                    <i class="bi bi-circle"></i><span>Barangku</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li><!-- End Components Nav -->
+                @endif
             @endif
 
         </ul>
